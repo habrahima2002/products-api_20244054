@@ -7,12 +7,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 import uk.ac.westminster.products_api.Dto.Product;
 
 public class ProductController {
-    @GetMapping(value = "/{id}")
-    public String getProductById(@PathVariable("id") Integer id  ) {
-        return new Product(id, "Product 1", 100.00).toString();
+//    @GetMapping(value = "/{id}")
+//    public String getProductById(@PathVariable("id") Integer id  ) {
+//        return new Product(id, "Product 1", 100.00).toString();
+//    }
+
+
+    @GetMapping("/{id}")
+    public Product getById(@PathVariable Long id) {
+        return new Product(id, "Laptop", 999.99);
     }
+
+
    @PostMapping("/products")
     public String addProduct(@RequestBody Product product) {
    //eturn Product;
-return "Product Added";    }
-}
+   return "Product Added";    }
+   }
